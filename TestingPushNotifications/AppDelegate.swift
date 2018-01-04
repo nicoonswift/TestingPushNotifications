@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        registerForPushNotifications()
+        
         return true
     }
 
@@ -41,6 +44,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {
+            (granted, error) in
+            guard granted else { return }
+            
+            self.getNotificationSettings()
+        }
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            guard settings.authorizationStatus == .authorized else { return }
+            
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+    }
+    
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        let tokenParts = deviceToken.map { data -> String in
+            return String(format: "%02.2hhx", data)
+        }
+        
+        let token = tokenParts.joined()
+        
+//        if ProcessInfo.processInfo.arguments.contains("isRunningUITests") {
+//
+//            NotificationCenter.default.post(name: didRegisterWithDeviceTokenNotification, object: token)
+//        }
+        
+        NotificationCenter.default.post(name: didRegisterWithDeviceTokenNotification, object: token)
+    }
+    
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
+    
+    func application(
+        _ application: UIApplication,
+        didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+        fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        handle(userInfo)
+    }
+    
+    func handle(_ pushNotification: [AnyHashable: Any]) {
+//        guard
+//            let viewControllerName = pushNotification["vcType"] as? String,
+//            let viewControllerType = ViewControllerType(rawValue: viewControllerName) else { return }
+//
+//        viewController.presentViewController(withType: viewControllerType)
+    }
 
 }
 
