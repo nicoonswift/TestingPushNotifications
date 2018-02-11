@@ -13,8 +13,10 @@
 		375DA25C1FFD80A2008FE6E5 /* Theft.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 375DA25B1FFD80A2008FE6E5 /* Theft.storyboard */; };
 		375DA25E1FFD80B2008FE6E5 /* TheftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DA25D1FFD80B2008FE6E5 /* TheftViewController.swift */; };
 		375DA26E1FFD8199008FE6E5 /* TheftViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375DA26D1FFD8199008FE6E5 /* TheftViewControllerTests.swift */; };
+		379E88DA20239F9800B1CEED /* MainViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379E88D920239F9800B1CEED /* MainViewControllerUITests.swift */; };
+		37A6441F2030D3B100EB7767 /* BikePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A6441E2030D3B100EB7767 /* BikePosition.swift */; };
+		37A644232030EAE500EB7767 /* SpringBoardActionableNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A644222030EAE500EB7767 /* SpringBoardActionableNotification.swift */; };
 		37DE607A1FFD7CE500137FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE60791FFD7CE500137FCE /* AppDelegate.swift */; };
-		37DE607C1FFD7CE500137FCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE607B1FFD7CE500137FCE /* ViewController.swift */; };
 		37DE607F1FFD7CE500137FCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37DE607D1FFD7CE500137FCE /* Main.storyboard */; };
 		37DE60811FFD7CE500137FCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37DE60801FFD7CE500137FCE /* Assets.xcassets */; };
 		37DE60841FFD7CE500137FCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37DE60821FFD7CE500137FCE /* LaunchScreen.storyboard */; };
@@ -54,9 +56,11 @@
 		375DA2631FFD8184008FE6E5 /* TestingPushNotificationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestingPushNotificationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		375DA2671FFD8184008FE6E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		375DA26D1FFD8199008FE6E5 /* TheftViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheftViewControllerTests.swift; sourceTree = "<group>"; };
+		379E88D920239F9800B1CEED /* MainViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerUITests.swift; sourceTree = "<group>"; };
+		37A6441E2030D3B100EB7767 /* BikePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikePosition.swift; sourceTree = "<group>"; };
+		37A644222030EAE500EB7767 /* SpringBoardActionableNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringBoardActionableNotification.swift; sourceTree = "<group>"; };
 		37DE60761FFD7CE500137FCE /* TestingPushNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestingPushNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37DE60791FFD7CE500137FCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		37DE607B1FFD7CE500137FCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37DE607E1FFD7CE500137FCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37DE60801FFD7CE500137FCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37DE60831FFD7CE500137FCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			children = (
 				375DA25B1FFD80A2008FE6E5 /* Theft.storyboard */,
 				375DA25D1FFD80B2008FE6E5 /* TheftViewController.swift */,
+				37A6441E2030D3B100EB7767 /* BikePosition.swift */,
 			);
 			path = Theft;
 			sourceTree = "<group>";
@@ -137,6 +142,14 @@
 				375DA26D1FFD8199008FE6E5 /* TheftViewControllerTests.swift */,
 			);
 			path = TestingPushNotificationsTests;
+			sourceTree = "<group>";
+		};
+		37A644212030EADA00EB7767 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				37A644222030EAE500EB7767 /* SpringBoardActionableNotification.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		37DE606D1FFD7CE500137FCE = {
@@ -168,7 +181,6 @@
 				372FD1D21FFEC84E00A63AAE /* TestingPushNotifications.entitlements */,
 				375DA2591FFD807B008FE6E5 /* Modules */,
 				37DE60791FFD7CE500137FCE /* AppDelegate.swift */,
-				37DE607B1FFD7CE500137FCE /* ViewController.swift */,
 				37DE60801FFD7CE500137FCE /* Assets.xcassets */,
 				37DE60821FFD7CE500137FCE /* LaunchScreen.storyboard */,
 				37DE60851FFD7CE500137FCE /* Info.plist */,
@@ -179,9 +191,11 @@
 		37DE608D1FFD7CE500137FCE /* TestingPushNotificationsUITests */ = {
 			isa = PBXGroup;
 			children = (
+				37A644212030EADA00EB7767 /* Resources */,
 				372FD1D61FFECFB000A63AAE /* apns_dev.p12 */,
 				37DE608E1FFD7CE500137FCE /* TestingPushNotificationsUITests.swift */,
 				37DE60901FFD7CE500137FCE /* Info.plist */,
+				379E88D920239F9800B1CEED /* MainViewControllerUITests.swift */,
 			);
 			path = TestingPushNotificationsUITests;
 			sourceTree = "<group>";
@@ -466,11 +480,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37DE607C1FFD7CE500137FCE /* ViewController.swift in Sources */,
 				37DE607A1FFD7CE500137FCE /* AppDelegate.swift in Sources */,
 				375DA25E1FFD80B2008FE6E5 /* TheftViewController.swift in Sources */,
 				372FD1D51FFECC8600A63AAE /* PushNotificationHandler.swift in Sources */,
 				372FD1D11FFEC28200A63AAE /* MainViewController.swift in Sources */,
+				37A6441F2030D3B100EB7767 /* BikePosition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,7 +492,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37A644232030EAE500EB7767 /* SpringBoardActionableNotification.swift in Sources */,
 				37DE608F1FFD7CE500137FCE /* TestingPushNotificationsUITests.swift in Sources */,
+				379E88DA20239F9800B1CEED /* MainViewControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

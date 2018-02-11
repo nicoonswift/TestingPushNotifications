@@ -11,14 +11,31 @@ import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
+    let notificationTapAction = "com.apple.UNNotificationDefaultActionIdentifier"
+    let notificationDismissAction = "com.apple.UNNotificationDismissActionIdentifier"
+    let notificationAction = "notificationAction"
+    let notificationCategory = "notificationCategory"
+    let center = UNUserNotificationCenter.current()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         registerForPushNotifications()
+    
+        let action = UNNotificationAction(identifier: notificationAction,
+                                                    title: "ACTION",
+                                                    options: [.foreground])
         
+        let category = UNNotificationCategory(identifier: notificationCategory,
+                                                   actions: [action],
+                                                   intentIdentifiers: [],
+                                                   options: .customDismissAction)
+
+        center.setNotificationCategories([category])
+        center.delegate = self
+
         return true
     }
 
@@ -85,20 +102,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Failed to register: \(error)")
     }
     
-    func application(
-        _ application: UIApplication,
-        didReceiveRemoteNotification userInfo: [AnyHashable: Any],
-        fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        
-        handle(userInfo)
-    }
-    
-    func handle(_ pushNotification: [AnyHashable: Any]) {
-//        guard
-//            let viewControllerName = pushNotification["vcType"] as? String,
-//            let viewControllerType = ViewControllerType(rawValue: viewControllerName) else { return }
+//    func application(
+//        _ application: UIApplication,
+//        didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+//        fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 //
-//        viewController.presentViewController(withType: viewControllerType)
+////        handle(userInfo)
+//
+//    }
+//
+//    func handle(_ pushNotification: [AnyHashable: Any]) {
+//        NotificationCenter.default.post(name: bikeTheftNotification, object: pushNotification)
+//    }
+
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+
+        switch response.notification.request.content.categoryIdentifier {
+        case notificationCategory:
+            switch response.actionIdentifier {
+            case notificationAction:
+                print("User selected False alert action from notification")
+                completionHandler()
+
+            case notificationTapAction:
+//                NotificationCenter.default.post(name: bikeTheftNotification, object: pushNotification)
+                completionHandler()
+
+            case notificationDismissAction:
+                completionHandler()
+                
+            default:
+                completionHandler()
+            }
+        default:
+            completionHandler()
+        }
     }
 
 }

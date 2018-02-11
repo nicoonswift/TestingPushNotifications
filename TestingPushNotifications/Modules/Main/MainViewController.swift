@@ -8,7 +8,7 @@
 
 import UIKit
 import UserNotifications
-
+import CoreLocation
 
 final class MainViewController: UIViewController {
     
@@ -43,16 +43,24 @@ final class MainViewController: UIViewController {
             }
             
         case bikeTheftNotification:
+            guard let payload = notification.object as? [AnyHashable: Any],
+            let latitude = payload["latitude"] as? Double,
+            let longitude = payload["longitude"] as? Double else {
+                return
+            }
+            
+            let locationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            
             let storyboard = UIStoryboard(name: "Theft", bundle: nil)
             let theftViewController = storyboard.instantiateViewController(withIdentifier: "TheftViewController") as! TheftViewController
-            self.present(theftViewController, animated: true, completion: {})
+            self.present(theftViewController, animated: true, completion: {
+                theftViewController.locationCoordinate2D = locationCoordinate2D
+            })
             
         default:
             break
         }
         
-//        let alert = UIAlertController(title: "test", message: "test", preferredStyle: .alert)
-//        self.present(alert, animated: true, completion: {})
     }
 
 }
