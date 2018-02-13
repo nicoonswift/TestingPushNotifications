@@ -52,7 +52,6 @@ final class MainViewControllerUITests: XCTestCase {
         let latitude = 47.2256013
         let longitude = -1.5633523
         
-//        let payload = "{\"aps\":{\"alert\":\"Your bike was stolen!\", \"category\":\"notificationCategory\"}, \"latitude\":\(latitude), \"longitude\":\(longitude)}"
         let payload = "{\"aps\":{\"alert\":\"Your bike was stolen!\"}, \"latitude\":\(latitude), \"longitude\":\(longitude)}"
         triggerPushNotification(
             withPayload: payload,
@@ -189,6 +188,52 @@ final class MainViewControllerUITests: XCTestCase {
         sleep(5)
     }
 
+    func testTextInputActionbleNotification() {
+        let app = XCUIApplication()
+        app.launchArguments.append("isRunningUITests")
+        app.launch()
+        
+        // dismiss the system dialog if it pops up
+        allowPushNotificationsIfNeeded()
+        
+        // get the current deviceToken from the app [2]
+        let deviceToken = app.staticTexts.element(matching: .any, identifier: "deviceTokenLabel").label
+        
+        // close app [3]
+        XCUIDevice.shared.press(XCUIDevice.Button.home)
+        sleep(1)
+        
+        // trigger red Push Notification [4]        
+        let payload = "{\"aps\":{\"alert\":\"You have a message!\", \"category\":\"notificationTextInputCategory\"}}"
+        
+        triggerPushNotification(
+            withPayload: payload,
+            deviceToken: deviceToken)
+        
+        sleep(3)
+        
+        let notification = springboard.otherElements["TESTINGPUSHNOTIFICATIONS, now, You have a message!"]
+        
+        //Case 2: To display notification's category available actions
+        notification.swipeDown()
+        
+        //Case 2d: Dismiss on notification
+        let actionableNotification = SpringBoardActionableTextInputNotification(springboard: springboard)
+//        XCTAssert(actionableNotification.actionButton.exists)
+//        actionableNotification.actionButton.tap()
+
+        XCTAssert(actionableNotification.textField.exists)
+        actionableNotification.textField.typeText("this is a test message")
+        
+        XCTAssert(actionableNotification.sendButton.exists)
+        actionableNotification.sendButton.tap()
+        
+        //      Other, 0x1c4390400, traits: 35192962023424, {{0.0, 8.0}, {375.0, 659.0}}, label: 'Notification'
+
+        //      Other, 0x1c058fa40, traits: 35192962023424, {{0.0, 575.0}, {375.0, 92.0}}, label: 'Dock'
+
+        sleep(5)
+    }
     
     func triggerPushNotification(withPayload payload: String, deviceToken: String) {
         let uiTestBundle = Bundle(for: TestingPushNotificationsUITests.self)

@@ -19,6 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let notificationAction = "notificationAction"
     let notificationCategory = "notificationCategory"
     let center = UNUserNotificationCenter.current()
+    
+    
+    let notificationTextInputCategory = "notificationTextInputCategory"
+    let notificationTextInputActionIdentifier = "notificationTextInputAction"
+    let notificationTextInputSendAction = "notificationTextInputSendAction"
+    
+    let notificationTextInputActionTitle = "Add Comment"
+    let notificationTextInputButtonTitle = "Send"
+    let notificationTextInputPlaceholder = "Add Comment Here"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -32,8 +41,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                    actions: [action],
                                                    intentIdentifiers: [],
                                                    options: .customDismissAction)
+        
+        let textInputAction = UNTextInputNotificationAction(identifier: notificationTextInputActionIdentifier, title: notificationTextInputActionTitle, options: [], textInputButtonTitle: notificationTextInputButtonTitle, textInputPlaceholder: notificationTextInputPlaceholder)
+        
+//        let textInputSendAction = UNNotificationAction(identifier: notificationTextInputSendAction,
+//                                          title: "SEND",
+//                                          options: [.foreground])
+        
+        let textInputCategory = UNNotificationCategory(identifier: notificationTextInputCategory,
+                                                       actions: [textInputAction],
+                                                       intentIdentifiers: [],
+                                                       options: .customDismissAction)
 
-        center.setNotificationCategories([category])
+
+        center.setNotificationCategories([category, textInputCategory])
         center.delegate = self
 
         return true
@@ -138,6 +159,15 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             default:
                 completionHandler()
             }
+        case notificationTextInputCategory:
+            switch response.actionIdentifier {
+            case notificationTextInputActionIdentifier:
+                completionHandler()
+                
+            default:
+                completionHandler()
+            }
+            
         default:
             completionHandler()
         }
