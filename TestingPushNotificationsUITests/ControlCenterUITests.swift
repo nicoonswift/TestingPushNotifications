@@ -28,14 +28,14 @@ final class ControlCenterUITests: XCTestCase {
         app.launch()
         
         XCUIDevice.shared.press(XCUIDevice.Button.home)
-        sleep(1)
         
         let dock = springboard.otherElements["Dock"]
+        XCTAssert(dock.waitForExistence(timeout: 10))
         dock.swipeUp()
         
-        sleep(1)
-        
         let controlCenter = ControlCenter(springboard: springboard)
+        XCTAssert(controlCenter.cellularDataButtonSwitch.waitForExistence(timeout: 10))
+
         controlCenter.cellularDataButtonSwitch.tap()
         controlCenter.cellularDataButtonSwitch.tap()
         

@@ -146,14 +146,17 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         case notificationCategory:
             switch response.actionIdentifier {
             case notificationAction:
-                print("User selected False alert action from notification")
+                print("User pressed ACTION button from notification")
+                NotificationCenter.default.post(name: bikeTheftNotification, object: response.notification.request.content.userInfo)
                 completionHandler()
 
             case notificationTapAction:
-//                NotificationCenter.default.post(name: bikeTheftNotification, object: pushNotification)
+                print("User has tapped notification")
+                NotificationCenter.default.post(name: bikeTheftNotification, object: response.notification.request.content.userInfo)
                 completionHandler()
 
             case notificationDismissAction:
+                print("User has dismissed the notification")
                 completionHandler()
                 
             default:
@@ -162,6 +165,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         case notificationTextInputCategory:
             switch response.actionIdentifier {
             case notificationTextInputActionIdentifier:
+                print("User did send a message through the notification")
                 completionHandler()
                 
             default:
@@ -169,6 +173,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             }
             
         default:
+            print("User has tapped a notification without category")
             completionHandler()
         }
     }
