@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3707B87820336E5F007C9925 /* SpringBoardActionableTextInputNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3707B87720336E5F007C9925 /* SpringBoardActionableTextInputNotification.swift */; };
+		3707B87A20337A7E007C9925 /* ControlCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3707B87920337A7E007C9925 /* ControlCenter.swift */; };
+		3707B87C20337AAA007C9925 /* ControlCenterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3707B87B20337AAA007C9925 /* ControlCenterUITests.swift */; };
 		372FD1D11FFEC28200A63AAE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372FD1D01FFEC28200A63AAE /* MainViewController.swift */; };
 		372FD1D51FFECC8600A63AAE /* PushNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372FD1D41FFECC8600A63AAE /* PushNotificationHandler.swift */; };
 		372FD1D71FFECFB000A63AAE /* apns_dev.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 372FD1D61FFECFB000A63AAE /* apns_dev.p12 */; };
@@ -49,6 +51,8 @@
 		300BAEEB7C7ED07929A9A3E1 /* Pods_TestingPushNotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestingPushNotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33D5089623FFC0C006B00725 /* Pods-TestingPushNotificationsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingPushNotificationsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestingPushNotificationsUITests/Pods-TestingPushNotificationsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3707B87720336E5F007C9925 /* SpringBoardActionableTextInputNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringBoardActionableTextInputNotification.swift; sourceTree = "<group>"; };
+		3707B87920337A7E007C9925 /* ControlCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCenter.swift; sourceTree = "<group>"; };
+		3707B87B20337AAA007C9925 /* ControlCenterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCenterUITests.swift; sourceTree = "<group>"; };
 		372FD1D01FFEC28200A63AAE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		372FD1D21FFEC84E00A63AAE /* TestingPushNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestingPushNotifications.entitlements; sourceTree = "<group>"; };
 		372FD1D41FFECC8600A63AAE /* PushNotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationHandler.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 			children = (
 				37A644222030EAE500EB7767 /* SpringBoardActionableNotification.swift */,
 				3707B87720336E5F007C9925 /* SpringBoardActionableTextInputNotification.swift */,
+				3707B87920337A7E007C9925 /* ControlCenter.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				37DE608E1FFD7CE500137FCE /* TestingPushNotificationsUITests.swift */,
 				37DE60901FFD7CE500137FCE /* Info.plist */,
 				379E88D920239F9800B1CEED /* MainViewControllerUITests.swift */,
+				3707B87B20337AAA007C9925 /* ControlCenterUITests.swift */,
 			);
 			path = TestingPushNotificationsUITests;
 			sourceTree = "<group>";
@@ -495,7 +501,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3707B87C20337AAA007C9925 /* ControlCenterUITests.swift in Sources */,
 				3707B87820336E5F007C9925 /* SpringBoardActionableTextInputNotification.swift in Sources */,
+				3707B87A20337A7E007C9925 /* ControlCenter.swift in Sources */,
 				37A644232030EAE500EB7767 /* SpringBoardActionableNotification.swift in Sources */,
 				37DE608F1FFD7CE500137FCE /* TestingPushNotificationsUITests.swift in Sources */,
 				379E88DA20239F9800B1CEED /* MainViewControllerUITests.swift in Sources */,

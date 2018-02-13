@@ -12,7 +12,6 @@ import NWPusher
 
 final class MainViewControllerUITests: XCTestCase {
     
-    // access to the springboard (to be able to tap the notification later) [1]
     let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
         
     override func setUp() {
@@ -233,147 +232,25 @@ final class MainViewControllerUITests: XCTestCase {
         sleep(5)
     }
     
-    struct PanelControl {
-        let springboard: XCUIApplication
 
-        private var controlCenterLayoutView: XCUIElementQuery {
-            return springboard/*@START_MENU_TOKEN@*/.scrollViews/*[[".otherElements[\"ControlCenterView\"].scrollViews",".scrollViews"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.otherElements.scrollViews["ControlCenterLayoutView"].otherElements
-        }
-        
-        private var elementsQuery: XCUIElementQuery {
-            return controlCenterLayoutView.scrollViews.otherElements
-        }
-        
-        var cellularDataButtonSwitch: XCUIElement {
-            return elementsQuery.switches["cellular-data-button"]
-        }
-        
-        var wifiButton: XCUIElement {
-            return elementsQuery.switches["wifi-button"]
-        }
-        
-        var bluetoothButton: XCUIElement {
-            return elementsQuery.switches["bluetooth-button"]
-        }
-        
-        var airplaneModeButtonSwitch: XCUIElement {
-            return elementsQuery.switches["airplane-mode-button"]
-        }
-        
-        var flashlightButton: XCUIElement {
-            return controlCenterLayoutView.buttons["flashlight"]
-        }
-        
-        var doNotDisturbSwitch: XCUIElement {
-            return controlCenterLayoutView.switches["do-not-disturb"]
-        }
-
-        var orientationLockSwitch: XCUIElement {
-            return controlCenterLayoutView.switches["orientation-lock"]
-        }
-
-        var closeButton: XCUIElement {
-            return     springboard.otherElements["ControlCenterView"].children(matching: .other).element(boundBy: 0)
-        }
-
-    }
     
-    func testPanelControl() {
-        let app = XCUIApplication()
-        app.launchArguments.append("isRunningUITests")
-        app.launch()
-        
-        XCUIDevice.shared.press(XCUIDevice.Button.home)
-        sleep(1)
-        
-        let dock = springboard.otherElements["Dock"]
-        dock.swipeUp()
-        
-        sleep(1)
-        
-        let panelControl = PanelControl(springboard: springboard)
-        panelControl.cellularDataButtonSwitch.tap()
-        panelControl.cellularDataButtonSwitch.tap()
-
-        panelControl.wifiButton.tap()
-        panelControl.wifiButton.tap()
-
-        panelControl.bluetoothButton.tap()
-        panelControl.bluetoothButton.tap()
-
-        panelControl.airplaneModeButtonSwitch.tap()
-        panelControl.airplaneModeButtonSwitch.tap()
-
-        panelControl.flashlightButton.tap()
-        panelControl.flashlightButton.tap()
-
-        panelControl.doNotDisturbSwitch.tap()
-        panelControl.doNotDisturbSwitch.tap()
-
-        panelControl.orientationLockSwitch.tap()
-        panelControl.orientationLockSwitch.tap()
-
-        panelControl.closeButton.tap()
-        
-        
-//        let statusBarsQuery = springboard.statusBars
-//        statusBarsQuery.otherElements["Orientation Locked"].tap()
-        
-        
-//        springboard.otherElements["ControlCenterView"].children(matching: .other).element(boundBy: 0).tap()
-    }
-    
-    func testNotificationCenterControl() {
-        let app = XCUIApplication()
-        app.launchArguments.append("isRunningUITests")
-        app.launch()
-
-        XCUIDevice.shared.press(XCUIDevice.Button.home)
-        sleep(1)
-
-        
-        
-        
-        
-//        let controlCenterLayoutView = app/*@START_MENU_TOKEN@*/.scrollViews/*[[".otherElements[\"ControlCenterView\"].scrollViews",".scrollViews"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.otherElements.scrollViews["ControlCenterLayoutView"].otherElements
-//        let elementsQuery = controlCenterLayoutView.scrollViews.otherElements
-//
-//        let cellularDataButtonSwitch = elementsQuery/*@START_MENU_TOKEN@*/.switches["cellular-data-button"]/*[[".switches[\"Cellular Data\"]",".switches[\"cellular-data-button\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-//        cellularDataButtonSwitch.tap()
-//        cellularDataButtonSwitch.tap()
-//
-//        let wifiButton = elementsQuery/*@START_MENU_TOKEN@*/.switches["wifi-button"]/*[[".switches[\"Wi-Fi, Bbox-7D26BA\"]",".switches[\"wifi-button\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-//        wifiButton.tap()
-//        wifiButton.tap()
-//
-//        let bluetoothButton = elementsQuery/*@START_MENU_TOKEN@*/.switches["bluetooth-button"]/*[[".switches[\"Bluetooth, Not Connected\"]",".switches[\"bluetooth-button\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-//        bluetoothButton.tap()
-//        bluetoothButton.tap()
-//
-//        let airplaneModeButtonSwitch = elementsQuery/*@START_MENU_TOKEN@*/.switches["airplane-mode-button"]/*[[".switches[\"Airplane Mode\"]",".switches[\"airplane-mode-button\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-//        airplaneModeButtonSwitch.tap()
-//        airplaneModeButtonSwitch.tap()
-//
-//        let flashlightButton = controlCenterLayoutView/*@START_MENU_TOKEN@*/.buttons["flashlight"]/*[[".buttons[\"Flashlight\"]",".buttons[\"flashlight\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-//        flashlightButton.tap()
-//        flashlightButton.tap()
-//
-//        let doNotDisturbSwitch = controlCenterLayoutView/*@START_MENU_TOKEN@*/.switches["do-not-disturb"]/*[[".switches[\"Do not disturb\"]",".switches[\"do-not-disturb\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-//        doNotDisturbSwitch.tap()
-//        doNotDisturbSwitch.tap()
-//
-//        let orientationLockSwitch = controlCenterLayoutView/*@START_MENU_TOKEN@*/.switches["orientation-lock"]/*[[".switches[\"Lock Rotation\"]",".switches[\"orientation-lock\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-//        orientationLockSwitch.tap()
-//        orientationLockSwitch.tap()
-//
-//        let statusBarsQuery = app.statusBars
-//        statusBarsQuery.otherElements["Orientation Locked"].tap()
-//
-//
-//        app.otherElements["ControlCenterView"].children(matching: .other).element(boundBy: 0).tap()
-        
   
-    }
+    
+//    func testNotificationCenterInteractions() {
+//        let app = XCUIApplication()
+//        app.launchArguments.append("isRunningUITests")
+//        app.launch()
+//
+//        XCUIDevice.shared.press(XCUIDevice.Button.home)
+//        sleep(1)
+//
+//        let statusBarsQuery = springboard.statusBars
+//        let orientationLockedElement = statusBarsQuery.otherElements["Orientation Locked"]
+//        orientationLockedElement.swipeDown()
+//        orientationLockedElement.tap()
+//
+//        sleep(5)
+//    }
     
     
     func triggerPushNotification(withPayload payload: String, deviceToken: String) {
