@@ -17,9 +17,25 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKA-DV-Q2w">
+                                <rect key="frame" x="77" y="318.5" width="220" height="30"/>
+                                <state key="normal" title="Remote notifications permission"/>
+                                <connections>
+                                    <action selector="remoteNotificationsAuthorization:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XT8-td-bXE"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.79215686269999996" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="wKA-DV-Q2w" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WoQ-41-ukA"/>
+                            <constraint firstItem="wKA-DV-Q2w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aS6-9M-sUZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="notificationsButton" destination="wKA-DV-Q2w" id="Pgc-LP-dZG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

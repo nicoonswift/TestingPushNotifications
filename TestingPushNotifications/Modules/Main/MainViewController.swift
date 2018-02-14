@@ -12,14 +12,41 @@ import CoreLocation
 
 final class MainViewController: UIViewController {
     
+    @IBOutlet var notificationsButton: UIButton!
+    
+    let userNotificationCenter = UNUserNotificationCenter.current()
     var deviceTokenLabel: UILabel?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        notificationsButton.accessibilityIdentifier = "notificationsButton"
 
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.handleNotification(_:)), name: didRegisterWithDeviceTokenNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.handleNotification(_:)), name: bikeTheftNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.handleNotification(_:)), name: didTapOnActionNotification, object: nil)
+
+    }
+    
+    @IBAction func remoteNotificationsAuthorization(_ sender: UIButton) {
+        userNotificationCenter.requestAuthorization(options: [.alert, .sound]) {
+            (granted, error) in
+            guard granted else { return }
+            
+            self.getNotificationSettings()
+        }
+    }
+    
+    func getNotificationSettings() {
+        userNotificationCenter.getNotificationSettings { (settings) in
+            guard settings.authorizationStatus == .authorized else { return }
+            
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
     }
     
     /*
@@ -30,7 +57,6 @@ final class MainViewController: UIViewController {
         switch notification.name {
         case didRegisterWithDeviceTokenNotification:
             guard let deviceToken = notification.object as? String else {
-                //TODO: handle error
                 return
             }
             
@@ -56,6 +82,10 @@ final class MainViewController: UIViewController {
             self.present(theftViewController, animated: true, completion: {
                 theftViewController.locationCoordinate2D = locationCoordinate2D
             })
+            
+        case didTapOnActionNotification:
+            let alert = UIAlertController(title: "Bonjour !", message: "You just tapped on the notification's action button", preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
             
         default:
             break

@@ -18,7 +18,7 @@ extension XCTestCase {
         
         do {
             let data = try Data(contentsOf: url)
-            let pusher = try NWPusher.connect(withPKCS12Data: data, password: "cocoaheadsnantes", environment: .auto)
+            let pusher = try NWPusher.connect(withPKCS12Data: data, password: "cocoaheadsnantes", environment: .sandbox)
             try pusher.pushPayload(payload, token: deviceToken,
                                    identifier: UInt(arc4random_uniform(UInt32(999))))
         } catch {
@@ -26,14 +26,16 @@ extension XCTestCase {
         }
     }
     
-    func allowPushNotificationsIfNeeded() {
-        addUIInterruptionMonitor(withDescription: "“RemoteNotification” Would Like to Send You Notifications") { (alerts) -> Bool in
-            if(alerts.buttons["Allow"].exists){
-                alerts.buttons["Allow"].tap()
-                return true
+    func allowPushNotificationsIfNeeded(app: XCUIApplication) {
+        addUIInterruptionMonitor(withDescription: "Allow remote notifications") { (alert) -> Bool in
+            if(alert.buttons["Allow"].exists){
+                alert.buttons["Allow"].tap()
             }
-            return false
+            return true
         }
-        XCUIApplication().tap()
+        
+        //NOTE: Bug in Xcode9 requires to call twice this method to handle system alerts on simulator.
+        app.tap()
+        app.tap()
     }
 }

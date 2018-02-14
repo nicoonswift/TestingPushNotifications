@@ -8,5 +8,6 @@
 
 import Foundation
 
+let didTapOnActionNotification = Notification.Name("didTapOnActionNotification")
 let bikeTheftNotification = Notification.Name("bikeTheftNotification")
 let didRegisterWithDeviceTokenNotification = Notification.Name("didRegisterWithDeviceTokenNotification")

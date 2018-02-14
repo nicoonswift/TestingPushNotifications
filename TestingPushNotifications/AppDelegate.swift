@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let notificationDismissAction = "com.apple.UNNotificationDismissActionIdentifier"
     let notificationAction = "notificationAction"
     let notificationCategory = "notificationCategory"
-    let center = UNUserNotificationCenter.current()
+    let userNotificationCenter = UNUserNotificationCenter.current()
     
     
     let notificationTextInputCategory = "notificationTextInputCategory"
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        registerForPushNotifications()
+//        registerForPushNotifications()
     
         let action = UNNotificationAction(identifier: notificationAction,
                                                     title: "ACTION",
@@ -44,18 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let textInputAction = UNTextInputNotificationAction(identifier: notificationTextInputActionIdentifier, title: notificationTextInputActionTitle, options: [], textInputButtonTitle: notificationTextInputButtonTitle, textInputPlaceholder: notificationTextInputPlaceholder)
         
-//        let textInputSendAction = UNNotificationAction(identifier: notificationTextInputSendAction,
-//                                          title: "SEND",
-//                                          options: [.foreground])
-        
         let textInputCategory = UNNotificationCategory(identifier: notificationTextInputCategory,
                                                        actions: [textInputAction],
                                                        intentIdentifiers: [],
                                                        options: .customDismissAction)
 
 
-        center.setNotificationCategories([category, textInputCategory])
-        center.delegate = self
+        userNotificationCenter.setNotificationCategories([category, textInputCategory])
+        userNotificationCenter.delegate = self
 
         return true
     }
@@ -81,25 +77,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-    func registerForPushNotifications() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {
-            (granted, error) in
-            guard granted else { return }
-            
-            self.getNotificationSettings()
-        }
-    }
-    
-    func getNotificationSettings() {
-        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-            guard settings.authorizationStatus == .authorized else { return }
-            
-            DispatchQueue.main.async {
-                UIApplication.shared.registerForRemoteNotifications()
-            }
-        }
-    }
     
     func application(_ application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -110,12 +87,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let token = tokenParts.joined()
         
-//        if ProcessInfo.processInfo.arguments.contains("isRunningUITests") {
-//
-//            NotificationCenter.default.post(name: didRegisterWithDeviceTokenNotification, object: token)
-//        }
+        if ProcessInfo.processInfo.arguments.contains("isRunningUITests") {
+            NotificationCenter.default.post(name: didRegisterWithDeviceTokenNotification, object: token)
+        }
         
-        NotificationCenter.default.post(name: didRegisterWithDeviceTokenNotification, object: token)
+//        NotificationCenter.default.post(name: didRegisterWithDeviceTokenNotification, object: token)
     }
     
     func application(_ application: UIApplication,
@@ -147,7 +123,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             switch response.actionIdentifier {
             case notificationAction:
                 print("User pressed ACTION button from notification")
-                NotificationCenter.default.post(name: bikeTheftNotification, object: response.notification.request.content.userInfo)
+                NotificationCenter.default.post(name: didTapOnActionNotification, object: response.notification.request.content.userInfo)
+                //TODO: display a popup on screen
                 completionHandler()
 
             case notificationTapAction:
