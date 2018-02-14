@@ -13,27 +13,21 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
+    let userNotificationCenter = UNUserNotificationCenter.current()
+
     let notificationTapAction = "com.apple.UNNotificationDefaultActionIdentifier"
     let notificationDismissAction = "com.apple.UNNotificationDismissActionIdentifier"
-    let notificationAction = "notificationAction"
+    
     let notificationCategory = "notificationCategory"
-    let userNotificationCenter = UNUserNotificationCenter.current()
-    
-    
+    let notificationActionIdentifier = "notificationActionIdentifier"
+
     let notificationTextInputCategory = "notificationTextInputCategory"
-    let notificationTextInputActionIdentifier = "notificationTextInputAction"
-    let notificationTextInputSendAction = "notificationTextInputSendAction"
+    let notificationTextInputActionIdentifier = "notificationTextInputActionIdentifier"
     
-    let notificationTextInputActionTitle = "Add Comment"
-    let notificationTextInputButtonTitle = "Send"
-    let notificationTextInputPlaceholder = "Add Comment Here"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-//        registerForPushNotifications()
-    
-        let action = UNNotificationAction(identifier: notificationAction,
+        let action = UNNotificationAction(identifier: notificationActionIdentifier,
                                                     title: "ACTION",
                                                     options: [.foreground])
         
@@ -42,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                    intentIdentifiers: [],
                                                    options: .customDismissAction)
         
-        let textInputAction = UNTextInputNotificationAction(identifier: notificationTextInputActionIdentifier, title: notificationTextInputActionTitle, options: [], textInputButtonTitle: notificationTextInputButtonTitle, textInputPlaceholder: notificationTextInputPlaceholder)
+        let textInputAction = UNTextInputNotificationAction(identifier: notificationTextInputActionIdentifier, title: "Add Comment", options: [], textInputButtonTitle: "Send", textInputPlaceholder: "Add Comment Here")
         
         let textInputCategory = UNNotificationCategory(identifier: notificationTextInputCategory,
                                                        actions: [textInputAction],
@@ -91,7 +85,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NotificationCenter.default.post(name: didRegisterWithDeviceTokenNotification, object: token)
         }
         
-//        NotificationCenter.default.post(name: didRegisterWithDeviceTokenNotification, object: token)
     }
     
     func application(_ application: UIApplication,
@@ -121,10 +114,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         switch response.notification.request.content.categoryIdentifier {
         case notificationCategory:
             switch response.actionIdentifier {
-            case notificationAction:
+            case notificationActionIdentifier:
                 print("User pressed ACTION button from notification")
                 NotificationCenter.default.post(name: didTapOnActionNotification, object: response.notification.request.content.userInfo)
-                //TODO: display a popup on screen
                 completionHandler()
 
             case notificationTapAction:
