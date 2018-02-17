@@ -25,11 +25,10 @@ Remember to setup the app in Apple Developer website
 ## Videos
 
 * [UI Testing: Controlling Control Center iOS 11.2.5](https://youtu.be/BTf53VsqnpE)
-* [UI Testing: Push Notification with a Text Input Action iOS 11.2.5](https://youtu.be/sdm8101hjXU  UI)
-* [Testing: Push Notification with an Action iOS 11.2.5](https://youtu.be/TUn2HcCgeYc  UI)
+* [UI Testing: Push Notification with a Text Input Action iOS 11.2.5](https://youtu.be/sdm8101hjXUUI)
+* [Testing: Push Notification with an Action iOS 11.2.5](https://youtu.be/TUn2HcCgeYcUI)
 * [Testing: Push Notification tap from Springboard iOS 11.2.5](https://youtu.be/gbKuLK5chpU)
 * [UI Testing: Push Notification dismiss from Springboard iOS 11.2.5](https://youtu.be/mZ_dv0e7274)
-
  
  
 
