@@ -11,6 +11,7 @@
 		3707B87A20337A7E007C9925 /* ControlCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3707B87920337A7E007C9925 /* ControlCenter.swift */; };
 		3707B87C20337AAA007C9925 /* ControlCenterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3707B87B20337AAA007C9925 /* ControlCenterUITests.swift */; };
 		3707B87E20338833007C9925 /* PushNotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3707B87D20338833007C9925 /* PushNotificationExtension.swift */; };
+		37249EF3206AEFCA009D3095 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 37249EF2206AEFCA009D3095 /* README.md */; };
 		372FD1D11FFEC28200A63AAE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372FD1D01FFEC28200A63AAE /* MainViewController.swift */; };
 		372FD1D51FFECC8600A63AAE /* PushNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372FD1D41FFECC8600A63AAE /* PushNotificationHandler.swift */; };
 		372FD1D71FFECFB000A63AAE /* apns_dev.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 372FD1D61FFECFB000A63AAE /* apns_dev.p12 */; };
@@ -55,6 +56,7 @@
 		3707B87920337A7E007C9925 /* ControlCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCenter.swift; sourceTree = "<group>"; };
 		3707B87B20337AAA007C9925 /* ControlCenterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCenterUITests.swift; sourceTree = "<group>"; };
 		3707B87D20338833007C9925 /* PushNotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationExtension.swift; sourceTree = "<group>"; };
+		37249EF2206AEFCA009D3095 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		372FD1D01FFEC28200A63AAE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		372FD1D21FFEC84E00A63AAE /* TestingPushNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestingPushNotifications.entitlements; sourceTree = "<group>"; };
 		372FD1D41FFECC8600A63AAE /* PushNotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationHandler.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		37DE606D1FFD7CE500137FCE = {
 			isa = PBXGroup;
 			children = (
+				37249EF2206AEFCA009D3095 /* README.md */,
 				37DE60781FFD7CE500137FCE /* TestingPushNotifications */,
 				37DE608D1FFD7CE500137FCE /* TestingPushNotificationsUITests */,
 				375DA2641FFD8184008FE6E5 /* TestingPushNotificationsTests */,
@@ -362,6 +365,7 @@
 			files = (
 				37DE60841FFD7CE500137FCE /* LaunchScreen.storyboard in Resources */,
 				37DE60811FFD7CE500137FCE /* Assets.xcassets in Resources */,
+				37249EF3206AEFCA009D3095 /* README.md in Resources */,
 				375DA25C1FFD80A2008FE6E5 /* Theft.storyboard in Resources */,
 				37DE607F1FFD7CE500137FCE /* Main.storyboard in Resources */,
 			);

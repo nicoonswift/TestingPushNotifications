@@ -31,7 +31,10 @@ Remember to setup the app in Apple Developer website
 * [UI Testing: Push Notification dismiss from Springboard iOS 11.2.5](https://youtu.be/mZ_dv0e7274)
  
  
-
+ ## Links of interest
+ 
+ * [Using iMessages app on Simulator to test Deep Linking](https://blog.branch.io/ui-testing-universal-links-in-xcode-9/)
+ * [Xcode 9 XCTest new features](https://medium.com/xcblog/hands-on-xcuitest-features-with-xcode-9-eb4d00be2781)
 
 
 
