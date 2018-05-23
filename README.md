@@ -16,6 +16,15 @@ we could interact with the received notifications while the app is in the foregr
 
 Also a UI Test example on interacting with the Control Center from the Springboard is added.
 
+## Getting Started
+
+### Prerequisites
+
+- Xcode 9.3
+- Swift 4.0
+- iOS 11.2.5+
+- CocoaPods
+
 ## Running the project
 Remember to setup the app in Apple Developer website
 
@@ -39,5 +48,11 @@ Remember to setup the app in Apple Developer website
  * [Using iMessages app on Simulator to test Deep Linking](https://blog.branch.io/ui-testing-universal-links-in-xcode-9/)
  * [Xcode 9 XCTest new features](https://medium.com/xcblog/hands-on-xcuitest-features-with-xcode-9-eb4d00be2781)
 
+## Contributing
 
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Authors
+
+- *Nicolas Garcia* [GitHub](https://github.com/nigarcia88)
 
