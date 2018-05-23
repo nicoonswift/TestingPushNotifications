@@ -1,5 +1,8 @@
 # UITesting: Dealing with Push Notifications
 
+![Platforms](https://img.shields.io/badge/platform-iOS-blue.svg)
+![Swift version](https://img.shields.io/badge/swift-4.0-blue.svg)
+
 Talk given at [CocoaHeads Nantes](https://www.meetup.com/fr-FR/CocoaHeads-Nantes/) 15/02/2018
 
 [Talk's keynote](https://speakerdeck.com/nicoonguitar/ui-testing-dealing-with-push-notifications)
