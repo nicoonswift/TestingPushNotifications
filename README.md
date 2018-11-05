@@ -47,6 +47,7 @@ Remember to setup the app in Apple Developer website
  
  * [Using iMessages app on Simulator to test Deep Linking](https://blog.branch.io/ui-testing-universal-links-in-xcode-9/)
  * [Xcode 9 XCTest new features](https://medium.com/xcblog/hands-on-xcuitest-features-with-xcode-9-eb4d00be2781)
+ * [iOS 12 Native app identifiers](https://github.com/joeblau/apple-bundle-identifiers)
 
 ## Contributing
 
