@@ -12,6 +12,7 @@
 		3707B87C20337AAA007C9925 /* ControlCenterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3707B87B20337AAA007C9925 /* ControlCenterUITests.swift */; };
 		3707B87E20338833007C9925 /* PushNotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3707B87D20338833007C9925 /* PushNotificationExtension.swift */; };
 		37249EF3206AEFCA009D3095 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 37249EF2206AEFCA009D3095 /* README.md */; };
+		372EDE1022062D5E00A03A19 /* pusher.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 372EDE0F22062D5E00A03A19 /* pusher.p12 */; };
 		372FD1D11FFEC28200A63AAE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372FD1D01FFEC28200A63AAE /* MainViewController.swift */; };
 		372FD1D51FFECC8600A63AAE /* PushNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372FD1D41FFECC8600A63AAE /* PushNotificationHandler.swift */; };
 		372FD1D71FFECFB000A63AAE /* apns_dev.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 372FD1D61FFECFB000A63AAE /* apns_dev.p12 */; };
@@ -57,6 +58,7 @@
 		3707B87B20337AAA007C9925 /* ControlCenterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCenterUITests.swift; sourceTree = "<group>"; };
 		3707B87D20338833007C9925 /* PushNotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationExtension.swift; sourceTree = "<group>"; };
 		37249EF2206AEFCA009D3095 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		372EDE0F22062D5E00A03A19 /* pusher.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = pusher.p12; sourceTree = "<group>"; };
 		372FD1D01FFEC28200A63AAE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		372FD1D21FFEC84E00A63AAE /* TestingPushNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestingPushNotifications.entitlements; sourceTree = "<group>"; };
 		372FD1D41FFECC8600A63AAE /* PushNotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationHandler.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				37A644212030EADA00EB7767 /* Resources */,
 				372FD1D61FFECFB000A63AAE /* apns_dev.p12 */,
+				372EDE0F22062D5E00A03A19 /* pusher.p12 */,
 				37DE60901FFD7CE500137FCE /* Info.plist */,
 				37DE608E1FFD7CE500137FCE /* TestingPushNotificationsUITests.swift */,
 				379E88D920239F9800B1CEED /* MainViewControllerUITests.swift */,
@@ -264,8 +267,6 @@
 				37DE60721FFD7CE500137FCE /* Sources */,
 				37DE60731FFD7CE500137FCE /* Frameworks */,
 				37DE60741FFD7CE500137FCE /* Resources */,
-				6794C3E8161E54598BC8C1F3 /* [CP] Embed Pods Frameworks */,
-				0E579361100AF8B9332D166A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,7 +286,6 @@
 				37DE60871FFD7CE500137FCE /* Frameworks */,
 				37DE60881FFD7CE500137FCE /* Resources */,
 				DE63EAC56C2FB28B16CD35C5 /* [CP] Embed Pods Frameworks */,
-				FF54DE502359E1D824AB8A2A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -304,16 +304,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Nicolas Garcia";
 				TargetAttributes = {
 					375DA2621FFD8184008FE6E5 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 37DE60751FFD7CE500137FCE;
 					};
 					37DE60751FFD7CE500137FCE = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -326,6 +328,7 @@
 					};
 					37DE60891FFD7CE500137FCE = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 37DE60751FFD7CE500137FCE;
 					};
@@ -375,6 +378,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				372EDE1022062D5E00A03A19 /* pusher.p12 in Resources */,
 				372FD1D71FFECFB000A63AAE /* apns_dev.p12 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,36 +386,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E579361100AF8B9332D166A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestingPushNotifications/Pods-TestingPushNotifications-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6794C3E8161E54598BC8C1F3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestingPushNotifications/Pods-TestingPushNotifications-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		807347496FF1E750A08DCD20 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -464,21 +438,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestingPushNotificationsUITests/Pods-TestingPushNotificationsUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FF54DE502359E1D824AB8A2A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestingPushNotificationsUITests/Pods-TestingPushNotificationsUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -563,7 +522,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ngarcia.TestingPushNotificationsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestingPushNotifications.app/TestingPushNotifications";
 			};
@@ -579,7 +538,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ngarcia.TestingPushNotificationsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestingPushNotifications.app/TestingPushNotifications";
 			};
@@ -599,6 +558,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -606,6 +566,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -656,6 +617,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -663,6 +625,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -704,7 +667,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ngarcia.TestingPushNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -721,7 +684,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ngarcia.TestingPushNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -737,7 +700,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ngarcia.TestingPushNotificationsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TestingPushNotifications;
 			};
@@ -754,7 +717,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ngarcia.TestingPushNotificationsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TestingPushNotifications;
 			};

@@ -19,8 +19,8 @@ final class TheftViewController: UIViewController {
             mapView.addAnnotation(bikePosition)
             
             let regionRadius: CLLocationDistance = 1000
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(locationCoordinate2D,
-                                                                      regionRadius, regionRadius)
+            let coordinateRegion = MKCoordinateRegion.init(center: locationCoordinate2D,
+                                                                      latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
             mapView.setRegion(coordinateRegion, animated: true)
         }
     }

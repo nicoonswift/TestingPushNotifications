@@ -21,7 +21,7 @@ final class TheftViewControllerTests: XCTestCase {
         sut = storyboard
             .instantiateViewController(
                 withIdentifier: "TheftViewController")
-            as! TheftViewController
+            as? TheftViewController
         let navigationController = UINavigationController()
         navigationController.viewControllers = [sut]
         UIApplication.shared.keyWindow!.rootViewController = navigationController

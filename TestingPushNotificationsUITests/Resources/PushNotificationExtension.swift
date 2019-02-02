@@ -14,11 +14,12 @@ extension XCTestCase {
     
     func triggerPushNotification(withPayload payload: String, deviceToken: String) {
         let uiTestBundle = Bundle(for: TestingPushNotificationsUITests.self)
-        guard let url = uiTestBundle.url(forResource: "apns_dev.p12", withExtension: nil) else { return }
-        
+//        guard let url = uiTestBundle.url(forResource: "apns_dev.p12", withExtension: nil) else { return }
+        guard let url = uiTestBundle.url(forResource: "pusher.p12", withExtension: nil) else { return }
+
         do {
             let data = try Data(contentsOf: url)
-            let pusher = try NWPusher.connect(withPKCS12Data: data, password: "cocoaheadsnantes", environment: .sandbox)
+            let pusher = try NWPusher.connect(withPKCS12Data: data, password: "cocoaheads", environment: .sandbox)
             try pusher.pushPayload(payload, token: deviceToken,
                                    identifier: UInt(arc4random_uniform(UInt32(999))))
         } catch {

@@ -1,7 +1,7 @@
 # UITesting: Dealing with Push Notifications
 
 ![Platforms](https://img.shields.io/badge/platform-iOS-blue.svg)
-![Swift version](https://img.shields.io/badge/swift-4.0-blue.svg)
+![Swift version](https://img.shields.io/badge/swift-4.2-blue.svg)
 
 Talk given at [CocoaHeads Nantes](https://www.meetup.com/fr-FR/CocoaHeads-Nantes/) 15/02/2018
 
@@ -20,9 +20,9 @@ Also a UI Test example on interacting with the Control Center from the Springboa
 
 ### Prerequisites
 
-- Xcode 9.3
-- Swift 4.0
-- iOS 11.2.5+
+- Xcode 10.1
+- Swift 4.2
+- iOS 12.1.2
 - CocoaPods
 
 ## Running the project
